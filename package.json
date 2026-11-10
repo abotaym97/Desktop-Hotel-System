@@ -1,0 +1,53 @@
+{
+  "name": "omda-desktop",
+  "version": "0.3.0",
+  "description": "OMDA Windows desktop client using the shared hotel web interface",
+  "author": "OMDA",
+  "private": true,
+  "main": "src/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "build:ui": "node scripts/build-ui.mjs",
+    "test": "node --test tests/*.test.cjs",
+    "pack": "npm run build:ui && electron-builder --win --x64 --dir --publish never",
+    "dist": "npm run build:ui && electron-builder --win nsis --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "45.2.3",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "com.omda.hotel.desktop",
+    "productName": "OMDA",
+    "asar": true,
+    "directories": {
+      "output": "artifacts",
+      "buildResources": "resources"
+    },
+    "files": [
+      "src/**",
+      "renderer/**",
+      "resources/icon.ico",
+      "desktop.config.json",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icon.ico",
+      "artifactName": "OMDA-Setup-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": false,
+      "installerLanguages": [
+        "en_US",
+        "ar_SA"
+      ]
+    }
+  }
+}

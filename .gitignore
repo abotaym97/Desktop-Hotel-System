@@ -1,0 +1,8 @@
+node_modules/
+renderer/
+artifacts/
+.qa/
+*.log
+desktop.config.local.json
+*.pfx
+*.p12
