@@ -25,7 +25,7 @@ npm run build:ui
 npm start
 ```
 
-يلزم تثبيت اعتماديات الواجهة المشتركة في `Frontend-System` للبناء فقط (`npm ci` هناك). Electron 45 يتطلب Node.js 22.12 أو أحدث لأدوات التطوير.
+يلزم تثبيت اعتماديات الواجهة المشتركة في `Frontend-Hotel-System` للبناء فقط (`npm ci` هناك). سكربت البناء يضمّن واجهة الويب الحالية داخل المثبّت. Electron 45 يتطلب Node.js 22.12 أو أحدث لأدوات التطوير.
 
 ```powershell
 npm test
